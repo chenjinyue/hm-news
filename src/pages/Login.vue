@@ -41,6 +41,10 @@ export default {
         this.$toast.fail('用户不存在')
       } else {
         this.$toast.success('登录成功')
+        const { token, user } = res.data.data
+        localStorage.setItem('token', token)
+        localStorage.setItem('id', user.id)
+        this.$router.push({ name: 'profile' })
       }
     }
   },
